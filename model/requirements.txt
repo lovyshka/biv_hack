@@ -1,0 +1,6 @@
+pandas==2.2.2
+catboost
+scikit-learn
+transformers==4.46.2
+torch==2.5.1
+tqdm==4.67.0
