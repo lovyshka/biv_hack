@@ -1,7 +1,0 @@
-services:
-  model:
-    container_name: stroginskye_kabans_model
-    build:
-      dockerfile: ./dockerfile
-    volumes:
-      - ./data:/tmp/data

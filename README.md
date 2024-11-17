@@ -17,10 +17,16 @@ cd biv_hack
 3) Замените файл data/payments_main.tsv, на ваш файл **с таким же названием**.
 
 
-4) Выполните команду для запуска контейнера
+4) Собери новый docker образ 
 
 ``` bash
-docker compose up --build 
+docker build -t strog_kabans_model_image . 
+```
+
+5) Запустите контейнер
+
+``` bash
+docker run -d --name strog_kabans_model_cont -v ./data:/tmp/data strog_kabans_model_image
 ```
 
 
