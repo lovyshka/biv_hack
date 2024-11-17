@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 class Pipeline:
-    def __init__(self, model_name='sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', weights="samaya_pizdataya_model"):
+    def __init__(self, model_name='sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', weights="model_weghts"):
         self.ml_model = CatBoostClassifier()     
         self.ml_model.load_model(weights)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -46,10 +46,10 @@ class Pipeline:
                 embeddings.append(output.pooler_output.cpu())
         return torch.cat(embeddings).numpy()
 
-    def predict(self, data_path, sep="\t", header=None, out_file_name="output.csv", batch_size=32):
+    def predict(self, data_path, sep="\t", header=None, out_file_name="/tmp/data/output.tsv", batch_size=32):
         self.read_data(data_path, sep, header, batch_size=batch_size)
         self.df["target"] = self.ml_model.predict(self.X_unlabeled).flatten()
-        self.df[["id", "target"]].to_csv(out_file_name, index=False)
+        self.df[["id", "target"]].to_csv(out_file_name, sep='\t', index=False)
 
 pipeline = Pipeline()
-pipeline.predict("payments_main.tsv", batch_size=64)
+pipeline.predict("/tmp/data/payments_main.tsv", batch_size=64)
