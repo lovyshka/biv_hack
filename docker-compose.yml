@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   model:
     container_name: stroginskye_kabans_model
