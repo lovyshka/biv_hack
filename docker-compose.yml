@@ -2,6 +2,6 @@ services:
   model:
     container_name: stroginskye_kabans_model
     build:
-      context: .
+      dockerfile: ./dockerfile
     volumes:
       - ./data:/tmp/data
