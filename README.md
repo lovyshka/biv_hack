@@ -30,7 +30,7 @@ docker run -d --name strog_kabans_model_cont -v ./data:/tmp/data strog_kabans_mo
 ```
 
 
-## Обзор
+## Дерево каталогов
 
 ```
 .
@@ -48,3 +48,10 @@ docker run -d --name strog_kabans_model_cont -v ./data:/tmp/data strog_kabans_mo
 
 2 directories, 9 files
 ```
+
+## Испытания
+Испытания проходили на 
+1) macbook pro m3 - время работы модели составило **4 минуты**
+2) ASUS ROG Zephyrus G14 с процессором AMD Ryzen 5 4600HS  -  время работы модели составило **6 минуты**
+3) macbook air m2 - время работы модели составило  **10 минут**(базовый слой был собран на другой архитектуре процессор, из-за чего просела скорость)
+4) Был арендован сервер 4 ГБ оперативы, 2 ядра  Intel Xeon E5-2680 v2 (2) @ 2.793GHz  - время работы модели составило  **25 минут**
